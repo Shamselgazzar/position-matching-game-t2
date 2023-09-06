@@ -2,9 +2,6 @@
 let round = 1;
 console.log("This is round: 1")
 
-
-
-
 function generateRandomBox() {
   return Math.random() < 0.5 ? "box1" : "box2";
 }
@@ -40,7 +37,7 @@ function addImages() {
     }
 
 function createImage(x,y,box) {
-    const image = new Image('60px', '60px');
+    const image = new Image();
     image.src = 'logo.png';
     image.alt = 'logo';
     image.style.position = 'absolute';
@@ -61,7 +58,6 @@ function oddImage() {
     //image.style.visibility = 'visible';
     image.onclick = nextRound;
     document.getElementById('box2').appendChild(image);
-  
 }
 
 function xPosition(){
@@ -91,12 +87,12 @@ function hint(){
     const image = document.getElementById('odd_image');
     x = image.style.top
     y = image.style.left
-    image.style = "border: solid 30px  rgb(230, 230, 47);";
+    image.style.border = "solid 30px rgb(230, 230, 47)";
     image.style.top = x;
     image.style.left = y;
     setTimeout(() => {  
         
-        image.style = "border: solid 0px  rgb(230, 230, 47);";
+        image.style.border = "solid 0px rgb(230, 230, 47)";
         image.style.top = x;
         image.style.left = y;
     }, 500);
